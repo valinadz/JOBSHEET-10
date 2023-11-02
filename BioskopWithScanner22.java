@@ -30,14 +30,21 @@ public class BioskopWithScanner22 {
                     penonton[baris-1][kolom-1] = nama;
 
                     if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2) {
-                        if (penonton[baris-1][kolom-1] == null) {
-                            penonton[baris-1][kolom-1] = nama;
-                            System.out.println("Data penotnon berhasil dimasukkan");
+                        if (penonton[baris - 1][kolom - 1] == null) {
+                            penonton[baris - 1][kolom - 1] = nama;
+                            System.out.println("Data penonton berhasil dimasukkan.");
                         } else {
-                            System.out.println("Kursi sudah ditempati. Silahkan pilih kursi lain.");
+                            System.out.println("Kursi sudah ditempati oleh " + penonton[baris - 1][kolom - 1] + ". Silakan pilih kursi lain.");
+                            System.out.print("Masukkan Baris: ");
+                            baris = sc.nextInt();
+                            System.out.print("Masukkan kolom: ");
+                            kolom = sc.nextInt();
+                            sc.nextLine();
+                            penonton[baris - 1][kolom - 1] = nama;
+                            System.out.println("Data penonton berhasil dimasukkan.");
                         }
                     } else {
-                        System.out.println("Nomor barisan atau kolom tidak tersedia.");
+                        System.out.println("Nomor baris atau kolom tidak tersedia.");
                     }
 
                     System.out.println("Input penonton lainnya? (y/n): ");
@@ -50,11 +57,10 @@ public class BioskopWithScanner22 {
 
                 case 2:
                     System.out.println("Daftar Penonton: ");
-                    for (int i = 0; i < 4; i++) {
-                        for (int j = 0; j < 2; j++) {
-                            if (penonton[i][j] != null) {
-                                System.out.println("Baris " + (i+1) + ", Kolom " + (j+1) + ": " + penonton[i][j]);
-                            }
+                    for (int i = 0; i < penonton.length; i++) {
+                        for (int j = 0; j < penonton[i].length; j++) {
+                            String namaPenonton = (penonton[i][j] != null) ? penonton[i][j] : "***";
+                                 System.out.println("Penonton baris ke- " + (i+1) + "dan kolom ke- " + (j+1) + ": " + namaPenonton);
                         }
                     }
                     break;
