@@ -29,6 +29,17 @@ public class BioskopWithScanner22 {
 
                     penonton[baris-1][kolom-1] = nama;
 
+                    if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2) {
+                        if (penonton[baris-1][kolom-1] == null) {
+                            penonton[baris-1][kolom-1] = nama;
+                            System.out.println("Data penotnon berhasil dimasukkan");
+                        } else {
+                            System.out.println("Kursi sudah ditempati. Silahkan pilih kursi lain.");
+                        }
+                    } else {
+                        System.out.println("Nomor barisan atau kolom tidak tersedia.");
+                    }
+
                     System.out.println("Input penonton lainnya? (y/n): ");
                     next = sc.nextLine();
 
